@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -39,7 +40,7 @@ public class DbMySQL{
                 ret.put(result);
             }
 
-        } catch (Exception e) {
+        } catch (SQLException | JSONException e) {
             //e.printStackTrace();
             return null;
         }
@@ -62,7 +63,7 @@ public class DbMySQL{
     public static void main(String[] args)
     {
         String type="mysql";
-        String dbname="whistle_sync";
+        String dbname="tangyibo";
         String host="172.16.56.119";
         String port="3306";
         String username="tangyibo";
@@ -71,8 +72,8 @@ public class DbMySQL{
         Connection conn=DbConnector.open(type, dbname, host, port, username, password, mode);
         if(null!=conn)
         {
-            String tablename="ofuser";
-            String sql = String.format("select * from %s", tablename);
+            String tablename="organization_jxau";
+            String sql = String.format("select id,name from %s", tablename);
             
             PreparedStatement pstmt=null;
             ResultSet rs=null;
@@ -82,11 +83,11 @@ public class DbMySQL{
                 JSONArray ret = resultToJsonArray(rs);
                 if (ret != null) {
                     //System.out.println(ret.toString());
-                    writeFile("e:/content.txt",ret.toString());
+                    writeFile("e:/test.txt",ret.toString());
                 }
 
             } catch (SQLException e) {
-                //Log.error("select userdata Exception" + e);
+                System.out.println("error:" + e.getMessage());
             } finally {
                 DbConnector.close(conn,pstmt,rs);
             }

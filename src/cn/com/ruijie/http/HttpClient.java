@@ -271,13 +271,4 @@ public class HttpClient {
 
         return result;
     }
-
-    public static void main(String[] args) {
-        //String ret=HttpClient.get("http://www.sina.com");
-        //String ret = HttpClient.http_post("http://123.56.97.4/tangybtest/index.php?m=test&a=recv", "{\"key\":\"value\"}");
-        //System.out.println(ret);
-        
-        String content=HttpClient.https_get("https://123.56.72.147/DataSyncCloudv2/index.php?m=dbcache&a=universal_db_cache_Op&verify=1&device_type=1");
-        System.out.println(content);
-    }
 }
