@@ -59,6 +59,7 @@ Default:
 	@echo "make jar: package your project into a executable jar."
 
 build:  $(SOURCE_FILES)
+	if [ ! -d $(BIN_DIR) ]; then mkdir $(BIN_DIR) ; fi;
 	@echo 'Building project files'
 	@echo 'Invoking:JAVAC Compiler'
 	$(JAVAC) -classpath $(MYCLASSPATH)  -Djava.ext.dirs=lib -d $(BIN_DIR) $(JFLAGS) $(SOURCE_FILES)
