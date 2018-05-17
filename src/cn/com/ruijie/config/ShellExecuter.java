@@ -188,7 +188,7 @@ public class ShellExecuter {
      */
     public static boolean execute3(String bashCmd) throws IOException {
         Runtime rt = Runtime.getRuntime();
-        Process process = null;
+        Process process = rt.exec(bashCmd);
 
         try {
             StreamGobbler errorGobbler = new StreamGobbler(
@@ -199,7 +199,6 @@ public class ShellExecuter {
                     process.getInputStream(), "STDOUT");
             outGobbler.start();
 
-            process = rt.exec(bashCmd);
             int status = process.waitFor();
             if (status != 0) {
                 String str = new BufferedReader(new InputStreamReader(
@@ -229,7 +228,7 @@ public class ShellExecuter {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(ShellExecuter.execute3("  cmd /c \"C: && dir\"  "));
+        System.out.println(ShellExecuter.execute1("  ls -l /home  "));
     }
 }
 

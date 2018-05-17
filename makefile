@@ -1,6 +1,6 @@
 # 设置你G要生成的jar包的文件名
 # Set the file name of your jar package:
-JAR_PKG =TcpSocketClient.jar
+JAR_PKG =ShellExecuter.jar
 
 # 设置你的编译文件所在到目录(不要为build)
 # Set directory for build files(not equal build)
@@ -8,7 +8,7 @@ BIN_DIR=bin
 
 # 设置你的项目的入口点
 # Set your entry point of your java app:
-ENTRY_POINT = com.learn.test.TcpSocketClient
+ENTRY_POINT = cn.com.ruijie.config.ShellExecuter
 
 # 设置你的java编译器
 # Set your java compiler here:
@@ -21,7 +21,7 @@ JFLAGS = -encoding UTF-8 -g
 # 建议的用法如下：
 # 如果你定义的类包含在某个包里：请自己在src下建立相应的目录层次。
 # 最终的目录结构如下：
-# ├── build/bin
+# ├── bin
 # │     └── a.jar
 # │     └── test
 # │             ├── A.class
@@ -48,7 +48,7 @@ JFLAGS = -encoding UTF-8 -g
 SOURCE_FILES:=$(shell find src -name *.java)
 SRC_SBU_DIR=$(shell find src -type d)
 VAR_TMP_STR=$(shell echo $(SRC_SBU_DIR) | sed 's/[ ][ ]*/:/g')
-MYCLASSPATH=$(shell echo $(VAR_TMP_STR) | sed 's/src/build/g')
+MYCLASSPATH=$(shell echo $(VAR_TMP_STR) | sed 's/src/$(BIN_DIR)/g')
 
 # show help message by default
 Default:
