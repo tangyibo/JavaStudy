@@ -1,4 +1,6 @@
-package cn.com.ruijie.utils;
+package cn.com.ruijie.code;
+
+
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;

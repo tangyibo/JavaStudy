@@ -78,4 +78,5 @@ run:
 	java -classpath $(MYCLASSPATH) -Djava.ext.dirs=lib  $(ENTRY_POINT)
 
 jar:
-	jar cvfe $(BIN_DIR)/$(JAR_PKG) $(ENTRY_POINT) -C $(BIN_DIR) .
+	jar cvfe ./$(JAR_PKG) $(ENTRY_POINT) -C $(BIN_DIR) .
+	mv ./$(JAR_PKG) $(BIN_DIR)/

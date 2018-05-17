@@ -1,4 +1,6 @@
-package cn.com.ruijie.utils;
+package cn.com.ruijie.code;
+
+
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
