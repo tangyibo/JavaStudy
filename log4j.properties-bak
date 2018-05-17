@@ -1,0 +1,17 @@
+log4j.rootLogger=ALL,CONSOLE,FILE
+log4j.addivity.org.apache=true
+
+# \u5e94\u7528\u4e8e\u63a7\u5236\u53f0  
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.Threshold=ALL
+log4j.appender.CONSOLE.Target=System.out
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern=%d -%-4r [%t] %-5p %c %x - %m%n  
+ 
+# \u6bcf\u5929\u65b0\u5efa\u65e5\u5fd7
+log4j.appender.FILE=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.FILE.File=./log/server.log
+log4j.appender.FILE.Threshold=ALL
+log4j.appender.FILE.DatePattern='.'yyyy-MM-dd
+log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
+log4j.appender.FILE.layout.ConversionPattern=%d %5p %c{1}\:%L \: %m%n
