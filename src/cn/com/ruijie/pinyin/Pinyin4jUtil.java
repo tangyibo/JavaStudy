@@ -43,9 +43,6 @@ public class Pinyin4jUtil {
                             }
                         }
                     }
-                    // else {
-                    // pinyinName.append(nameChar[i]);
-                    // }
                 } catch (BadHanyuPinyinOutputFormatCombination e) {
                     e.printStackTrace();
                 }
