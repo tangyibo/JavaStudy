@@ -51,9 +51,9 @@ public class DbMySQL{
     public static void writeFile(String filename,String data) {
         try {
             File f = new File(filename);
-            Writer wt = new FileWriter(f);
-            wt.write(data);
-            wt.close();
+            try (Writer wt = new FileWriter(f)) {
+                wt.write(data);
+            }
         } catch (IOException e) {
             System.out.print("write file failed:"+e.toString());
         }

@@ -353,7 +353,7 @@ public class Mail {
         mail.setSubject("主题测试");
         //mail.setTextBody("testBody");
         mail.setHtmlBody("<B>内容测试</B>");
-        mail.setFileAttachment("C:/bar.emf");
+        mail.setFileAttachment("E:/test.txt");
         mail.sendBatch();
     }
 }
